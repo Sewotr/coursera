@@ -14,5 +14,4 @@ function DIController ($scope, $filter) {
   };
 }
 
-
 })();
