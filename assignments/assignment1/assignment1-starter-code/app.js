@@ -6,11 +6,15 @@ angular.module('MsgApp', [])
 
 MsgController.$inject = ['$scope'];
 function MsgController($scope) {
-  $scope.name = "Sewotr";
+  $scope.list = "";
   $scope.stateOfBeing = "hungry";
 
-  $scope.sayMessage = function () {
-    return "Yaakov likes to eat healthy snack at night!";
+  $scope.split = function () {
+    $scope.test = $scope.list.split(",");
+    $scope.count = "";
+    for (let x in $scope.test) {
+        $scope.count += $scope.test[x];
+}
   };
 
   $scope.feedYaakov = function () {
