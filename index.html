@@ -1,25 +1,21 @@
 <!DOCTYPE html>
-<html ng-app='MsgApp'>
+<html ng-app='ShoppingListApp'>
   <head>
     <meta charset="utf-8">
     <script src="angular.min.js"></script>
     <script src="app.js"></script>
     <style> body { font-size: 1.2em; }</style>
-    <title>Expressions and Interpolation</title>
+    <title>ng-repeat</title>
   </head>
   <body>
-    <h1>Expressions and Interpolation</h1>
-    <div ng-controller='MsgController'>
-      {{name}} has a message for you: <br>
-        Original: {{sayMessage()}} <br>
-        Loves: {{sayLovesMessage()}} <br>
-        Truth: {{sayLovesMessage() | truth : 'healthy' : 'cookie' }} <br>
-        BIG TRUTH: {{sayLovesMessage() | truth : 'healthy' : 'cookie' | uppercase }}
-        <div>
-          <button ng-click="feedYaakov()">Feed Yaakov</button>
-          <br>
-          <img ng-src="images/yaakov_{{stateOfBeing}}.png">
-        </div>
+    <h1>ng-repeat</h1>
+    <div ng-controller='ShoppingListController'>
+      <!-- Searchable Shopping List: -->
+      <h3>Shopping List:</h3>
+      <input type="text" ng-model="search">
+      <ul>
+        <li ng-repeat="item in shoppingList | filter : search">{{ item }}</li>
+      </ul>
     </div>
   </body>
 </html>

@@ -1,46 +1,16 @@
 (function () {
 'use strict';
 
-angular.module('MsgApp', [])
-.controller('MsgController', MsgController)
-.filter('loves', LovesFilter)
-.filter('truth', TruthFilter);
+var shoppingList = [
+  "Milk", "Donuts", "Cookies", "Chocolate", "Peanut Butter", "Pepto Bismol", "Pepto Bismol (Chocolate flavor)", "Pepto Bismol (Cookie flavor)"
+];
 
-MsgController.$inject = ['$scope', 'lovesFilter'];
-function MsgController($scope, lovesFilter) {
-  $scope.name = "Sewotr";
-  $scope.stateOfBeing = "hungry";
+angular.module('ShoppingListApp', [])
+.controller('ShoppingListController', ShoppingListController);
 
-  $scope.sayMessage = function () {
-    var msg = "Yaakov likes to eat healthy snack at night!";
-    return msg;
-  };
-
-  $scope.sayLovesMessage = function () {
-    var msg = "Yaakov likes to eat healthy snack at night!";
-    msg = lovesFilter(msg)
-    return msg;
-  };
-
-  $scope.feedYaakov = function () {
-    $scope.stateOfBeing = "fed";
-  };
-}
-
-function LovesFilter() {
-  return function (input) {
-    input = input || "";
-    input = input.replace("likes", "loves");
-    return input;
-  };
-}
-
-function TruthFilter() {
-  return function (input, target, replace) {
-    input = input || "";
-    input = input.replace(target, replace);
-    return input;
-  };
+ShoppingListController.$inject = ['$scope'];
+function ShoppingListController($scope) {
+  $scope.shoppingList = shoppingList;
 }
 
 })();
