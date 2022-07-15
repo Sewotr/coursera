@@ -1,7 +1,7 @@
 (function () {
 'use strict';
 
-angular.module('ControllerAsApp', [])
+angular.module('ShoppingListApp', [])
 .controller('ShoppingListController1', ShoppingListController1)
 .controller('ShoppingListController2', ShoppingListController2)
 .factory('ShoppingListFactory', ShoppingListFactory);
@@ -19,13 +19,9 @@ function ShoppingListController1(ShoppingListFactory) {
   list1.itemName = "";
   list1.itemQuantity = "";
 
-  list1.addItem = function () {
-    shoppingList.addItem(list1.itemName, list1.itemQuantity);
-  }
 
-  list1.removeItem = function (itemIndex) {
-    shoppingList.removeItem(itemIndex);
-  };
+
+
 }
 
 
